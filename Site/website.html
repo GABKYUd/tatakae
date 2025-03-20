@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'd win</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('C:/Users/Gabriel/Documents/css/ywi6jvge3sra1.gif') repeat;
+            background-size: cover;
+            color: #fff;
+        }
+        header, footer {
+            background-color: rgba(51, 51, 51, 0.11); 
+            color: #fff; 
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            padding: 2em;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(128, 128, 128, 0.1); 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            color: #000;
+            position: relative;
+            z-index: 1;
+        }
+        .quiz-section {
+            margin-top: 2em;
+        }
+        .question {
+            margin-bottom: 1.5em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(249, 249, 249, 0.1); 
+            transition: background-color 0.3s ease;
+        }
+        .question:hover {
+            background-color: rgba(241, 241, 241, 0.1); 
+        }
+        .question p {
+            margin: 0 0 0.5em;
+            font-weight: bold;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 0.5em;
+            cursor: pointer;
+        }
+        .question input[type="text"] {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .correct-answer {
+            margin-top: 0.5em;
+            color: #28a745;
+            font-weight: bold;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 1em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+        .answer {
+            margin-top: 1em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(233, 233, 233, 0.1); /* Almost transparent */
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5); /* More transparent */
+            padding: 1em;
+            border-radius: 20px; /* Rounded borders */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 50%; /* Smaller size */
+            max-height: 50%; /* Smaller size */
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .popup.show {
+            display: block;
+        }
+        .popup h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+        .popup button {
+            display: block;
+            margin: 1em auto 0;
+            padding: 0.5em 2em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #555;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .overlay.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eticas e oratoria no trabalho!</h1>
+    </header>
+    <main>
+        <h2>Receba o conhecimento meu cria</h2>
+        <form action="#" method="post" class="quiz-section" onsubmit="showAnswers(event)">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. O que distingue a comunicação oral da comunicação escrita em termos de interação com o receptor?</p>
+                <input type="text" name="question1" required>
+                <p class="correct-answer" id="correct-answer-1"></p>
+            </div>
+        
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. Qual é a importância da clareza na comunicação escrita em contextos profissionais?</p>
+                <input type="text" name="question2" required>
+                <p class="correct-answer" id="correct-answer-2"></p>
+            </div>
+        
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. Como a comunicação oral pode ser afetada pela linguagem corporal e pela entonação?</p>
+                <input type="text" name="question3" required>
+                <p class="correct-answer" id="correct-answer-3"></p>
+            </div>
+        
+            <!-- Question 4 -->     
+            <div class="question">
+                <p>4. Quais são os benefícios da comunicação escrita em contextos profissionais?</p>
+                <input type="text" name="question4" required>
+                <p class="correct-answer" id="correct-answer-4"></p>
+            </div>
+            <!-- Question 5 --> 
+            <div class="question">
+                <p>5. Quais são as diferenças entre a comunicação oral e a comunicação escrita em termos de formalidade e informalidade?</p>
+                <input type="text" name="question5" required>
+                <p class="correct-answer" id="correct-answer-5"></p>
+            </div>
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. Como a comunicação oral pode ser afetada pela linguagem corporal e pela entonação?</p>
+                <input type="text" name="question6" required>
+                <p class="correct-answer" id="correct-answer-6"></p>
+            </div>  
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. Quais são os benefícios da comunicação escrita em contextos profissionais?</p>
+                <input type="text" name="question7" required>
+                <p class="correct-answer" id="correct-answer-7"></p>
+            </div>
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. Quais são as diferenças entre a comunicação oral e a comunicação escrita em termos de formalidade e informalidade?</p>
+                <input type="text" name="question8" required>
+                <p class="correct-answer" id="correct-answer-8"></p>
+            </div>  
+            <!-- Question 9 -->
+            <div class="question">
+                <p>9. Como a comunicação oral pode ser afetada pela linguagem corporal e pela entonação?</p>
+                <input type="text" name="question9" required>
+                <p class="correct-answer" id="correct-answer-9"></p>
+            </div>
+            <!-- Question 10 -->
+            <div class="question">
+                <p>10. Quais são os benefícios da comunicação escrita em contextos profissionais?</p>
+                <input type="text" name="question10" required>
+                <p class="correct-answer" id="correct-answer-10"></p>
+            </div>
+
+            <button type="submit">Enviar Quiz</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2025 Kyu. All rights reserved.</p>
+    </footer>
+    <div id="answers" class="popup">
+        <h3>Correct Answers</h3>
+        <div id="feedback"></div>
+        <p id="score" style="color: #fff; font-weight: bold;"></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <div id="overlay" class="overlay" onclick="closePopup()"></div>
+    <script>
+        async function compareAnswers(userAnswer, correctAnswer) {
+            const response = await fetch('http://127.0.0.1:5000/compare', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userAnswer: userAnswer,
+                    correctAnswer: correctAnswer
+                })
+            });
+            const data = await response.json();
+            return data.similarity; // Assuming the API returns a similarity score between 0 and 1
+        }
+
+        async function showAnswers(event) {
+            event.preventDefault();
+            const correctAnswers = [
+                "A comunicação oral ocorre em tempo real, permitindo feedback imediato do receptor, o que facilita ajustes durante o processo. A comunicação escrita, por outro lado, não permite essa interação imediata, permitindo ao emissor tempo para revisar e modificar a mensagem antes de ser enviada, o que pode resultar em maior precisão, mas falta de adaptabilidade instantânea.",
+                "A clareza na comunicação escrita profissional é crucial porque facilita a compreensão da mensagem, minimiza ambiguidades e evita mal-entendidos que podem afetar a tomada de decisões, comprometer projetos e prejudicar a imagem profissional. Em ambientes corporativos, onde a comunicação precisa ser eficiente e assertiva, a clareza é essencial para garantir o alinhamento entre equipes e stakeholders.",
+                "A comunicação oral depende significativamente da linguagem corporal e da entonação, pois ambos podem reforçar, contradizer ou complementar o conteúdo verbal. A entonação pode alterar o significado de uma palavra ou frase, enquanto a linguagem corporal transmite emoções e intenções, tornando a mensagem mais rica e mais fácil de ser interpretada pelo receptor. Por exemplo, um “não” dito com tom amigável pode ser interpretado de maneira diferente do mesmo “não” dito de forma ríspida.",
+                "A comunicação escrita em contextos profissionais oferece diversos benefícios, como registro permanente das informações, possibilidade de revisão e consulta posterior, clareza na transmissão de mensagens complexas, formalidade e seriedade na comunicação, além de facilitar a comunicação assíncrona, ou seja, entre pessoas que não estão presentes ao mesmo tempo. Esses benefícios contribuem para a eficiência, eficácia e profissionalismo nas interações profissionais.",
+                "A comunicação oral tende a ser mais informal do que a comunicação escrita, pois permite o uso de gírias, expressões coloquiais, interjeições e outras formas de linguagem mais descontraídas. Por outro lado, a comunicação escrita, especialmente em contextos profissionais, requer maior formalidade, precisão e clareza, evitando ambiguidades e interpretações equivocadas. A formalidade na comunicação escrita é importante para transmitir profissionalismo, seriedade e respeito aos destinatários da mensagem.",
+                "A comunicação oral depende significativamente da linguagem corporal e da entonação, pois ambos podem reforçar, contradizer ou complementar o conteúdo verbal. A entonação pode alterar o significado de uma palavra ou frase, enquanto a linguagem corporal transmite emoções e intenções, tornando a mensagem mais rica e mais fácil de ser interpretada pelo receptor. Por exemplo, um “não” dito com tom amigável pode ser interpretado de maneira diferente do mesmo “não” dito de forma ríspida.",
+                "A comunicação escrita em contextos profissionais oferece diversos benefícios, como registro permanente das informações, possibilidade de revisão e consulta posterior, clareza na transmissão de mensagens complexas, formalidade e seriedade na comunicação, além de facilitar a comunicação assíncrona, ou seja, entre pessoas que não estão presentes ao mesmo tempo. Esses benefícios contribuem para a eficiência, eficácia e profissionalismo nas interações profissionais.",
+                "A comunicação oral tende a ser mais informal do que a comunicação escrita, pois permite o uso de gírias, expressões coloquiais, interjeições e outras formas de linguagem mais descontraídas. Por outro lado, a comunicação escrita, especialmente em contextos profissionais, requer maior formalidade, precisão e clareza, evitando ambiguidades e interpretações equivocadas. A formalidade na comunicação escrita é importante para transmitir profissionalismo, seriedade e respeito aos destinatários da mensagem.",
+                "A comunicação oral depende significativamente da linguagem corporal e da entonação, pois ambos podem reforçar, contradizer ou complementar o conteúdo verbal. A entonação pode alterar o significado de uma palavra ou frase, enquanto a linguagem corporal transmite emoções e intenções, tornando a mensagem mais rica e mais fácil de ser interpretada pelo receptor. Por exemplo, um “não” dito com tom amigável pode ser interpretado de maneira diferente do mesmo “não” dito de forma ríspida.",
+                "A comunicação escrita em contextos profissionais oferece diversos benefícios, como registro permanente das informações, possibilidade de revisão e consulta posterior, clareza na transmissão de mensagens complexas, formalidade e seriedade na comunicação, além de facilitar a comunicação assíncrona, ou seja, entre pessoas que não estão presentes ao mesmo tempo. Esses benefícios contribuem para a eficiência, eficácia e profissionalismo nas interações profissionais."
+            ];
+
+            let score = 0;
+            const form = event.target;
+            const userAnswers = [
+                form.question1.value.trim(),
+                form.question2.value.trim(),
+                form.question3.value.trim(),
+                form.question4.value.trim(),
+                form.question5.value.trim(),
+                form.question6.value.trim(),
+                form.question7.value.trim(),
+                form.question8.value.trim(),
+                form.question9.value.trim(),
+                form.question10.value.trim()
+            ];
+
+            let feedback = '';
+            for (let i = 0; i < userAnswers.length; i++) {
+                const similarity = await compareAnswers(userAnswers[i], correctAnswers[i]);
+                if (similarity >= 0.5) { 
+                    score += 10; 
+                } else {
+                    feedback += `<p><strong>Question ${i + 1}:</strong> Your answer: "${userAnswers[i]}"<br>Correct answer: "${correctAnswers[i]}"</p>`;
+                }
+            }
+
+            document.getElementById('feedback').innerHTML = feedback;
+            document.getElementById('score').innerText = `Your score: ${score}`;
+            document.getElementById('answers').classList.add('show');
+            document.getElementById('overlay').classList.add('show');
+        }
+
+        function closePopup() {
+            document.getElementById('answers').classList.remove('show');
+            document.getElementById('overlay').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
